@@ -15,11 +15,13 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+
+
 SECRET_KEY = '__&q@z-!b7p1yt$s%ch%#ip)ah4*ibn65c%$)d92j&uha1!foy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -31,12 +33,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'store'
+    
+    
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -75,7 +83,7 @@ WSGI_APPLICATION = 'mashupcommrz.wsgi.application'
 DATABASES = {
 	'default': {
 	    'ENGINE': 'django.db.backends.mysql',#MySQL engine will be used as the db engine
-	    'NAME': 'mashupcommrzdb2020',#Name of the database created for this project
+	    'NAME': 'ecommrz_db',#Name of the database created for this project
 	    'USER': 'root',#Enter your mysql username
 	    'PASSWORD': '',#Enter your mysql password
 	    'HOST': 'localhost',
@@ -117,11 +125,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # The URL to use when referring to static files (where they will be served from)
+
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_URL ='/images/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
@@ -129,5 +145,8 @@ EMAIL_HOST_USER = '5480d11b609119'
 EMAIL_HOST_PASSWORD = '9a332418e3bee5'
 EMAIL_PORT = '2525'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+
+
+
+
+
